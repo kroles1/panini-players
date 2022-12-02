@@ -1,6 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 export default function Home() {
+  const test = useSelector(state => state.test)
+  console.log(test)
+
   return (
     <>
     <form>
