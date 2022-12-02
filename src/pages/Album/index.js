@@ -1,17 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Sticker } from '../../components'
 
 export default function Album() {
+  const stickerData = useSelector(state => state.stickers.stickers)
+  console.log(stickerData);
 
   const renderStickers = () => {
       return(
-        <div>
-        <Sticker/>
-        <Sticker/>
-        <Sticker/>
-        <Sticker/>
-        <Sticker/>
-        </div>
+        stickerData.map((sticker) => {
+          return <Sticker name={sticker.name} image={sticker.image} country={sticker.country} stickerId={sticker.stickerId} />
+        })
     )
   }
 

@@ -1,6 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { userReducer } from "./reducers";
+import { userReducer, stickerReducer } from "./reducers";
 
-const store = configureStore({ reducer: userReducer })
+const store = configureStore({
+    reducer: {
+    user: userReducer,
+    stickers: stickerReducer
+    }
+})
 
 export default store
