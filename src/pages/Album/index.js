@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Album() {
   const stickerData = useSelector(state => state.stickers.stickers)
   const userData = useSelector(state => state.user)
+  console.log(stickerData);
   const [country, setCountry] = useState("QAT")
 
   const dispatch = useDispatch()
@@ -21,7 +22,7 @@ export default function Album() {
   const renderStickers = () => {
       return(
         stickerData.map((sticker) => {
-          return <Sticker name={sticker.name} image={sticker.image} country={sticker.country} stickerId={sticker.stickerId} />
+          return <Sticker name={sticker.name} image={sticker.image} stickerId={sticker.stickerId} />
         })
     )
   }
