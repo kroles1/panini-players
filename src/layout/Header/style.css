@@ -1,0 +1,19 @@
+.navbar {
+    text-align: center;
+    color: black;
+    height: 50px;
+    padding-top: 20px;
+    border: solid 1px black;
+}
+
+.navlink {
+    margin: 10px;
+}
+
+.navlink:focus {
+    color: red;
+}
+
+a {
+    color: black;
+}
