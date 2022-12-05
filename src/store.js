@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { userReducer, stickerReducer } from "./reducers";
+import { userReducer, stickerReducer, friendsReducer } from "./reducers";
 
 const store = configureStore({
     reducer: {
     user: userReducer,
-    stickers: stickerReducer
+    stickers: stickerReducer,
+    friends: friendsReducer
     }
 })
 

@@ -33,7 +33,7 @@ export default function Register() {
 				console.log(res, "POST RESPONSE");
 				if (res.data.message === "New user created") {
 					console.log("REGISTRATION SUCCESSFULL");
-          navigate("/register")
+          navigate("/")
 				} else {
 					console.log("REGISTRATION FAILED");
 				}

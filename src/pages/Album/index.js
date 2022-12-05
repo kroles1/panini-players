@@ -1,11 +1,19 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Sticker } from '../../components'
 import './style.css'
+import { getStickerData } from '../../actions'
 
 export default function Album() {
   const stickerData = useSelector(state => state.stickers.stickers)
-  console.log(stickerData);
+  const userData = useSelector(state => state.user)
+  const [country, setCountry] = useState("QAT")
+
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    dispatch(getStickerData(country))
+  },[])
 
   const renderStickers = () => {
       return(
