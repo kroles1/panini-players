@@ -6,15 +6,16 @@ import { getFriendsData } from '../../actions'
 
 export default function Friends() {
   const friendsData = useSelector(state => state.friends.friends)
-  const friendsList = useSelector(state => state.user.friends)
-  console.log(friendsData);
+  // const friendsList = useSelector(state => state.user.friends)
+  // console.log(friendsList);
+  const username = useSelector(state => state.user.username)
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getFriendsData(friendsList))
-  }, [friendsList])
+    dispatch(getFriendsData(username))
+  }, [])
 
   const renderFriends = () => {
     return(
