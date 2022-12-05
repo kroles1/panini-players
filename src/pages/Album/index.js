@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Sticker } from '../../components'
+import './style.css'
 
 export default function Album() {
   const stickerData = useSelector(state => state.stickers.stickers)
@@ -15,7 +16,7 @@ export default function Album() {
   }
 
   return (
-    <div>
+    <div className='album'>
       <select>
         <option>England</option>
         <option>Brazil</option>

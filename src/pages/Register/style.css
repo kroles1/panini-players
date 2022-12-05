@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    height: 50vh;
+    width: 50vw;
+    background-color: var(--minor-bg-color)
+}
+
+input {
+    margin: 5px;
+}
