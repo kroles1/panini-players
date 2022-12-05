@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Sticker } from '../../components'
 import './style.css'
 import { getStickerData } from '../../actions'
+import { useNavigate } from 'react-router-dom'
 
 export default function Album() {
   const stickerData = useSelector(state => state.stickers.stickers)
@@ -10,6 +11,7 @@ export default function Album() {
   const [country, setCountry] = useState("QAT")
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   
   useEffect(() => {
     dispatch(getStickerData(country))
@@ -26,6 +28,8 @@ export default function Album() {
 
   return (
     <div className='album'>
+      <button onClick={() => navigate("/dashboard/confirmTrade")}>Confirm Trade</button>
+      <button onClick={() => navigate("/dashboard/addSticker")}>Add Stickers</button>
       <select onChange={e => setCountry(e.target.value)}>
         <option value="QAT">Qatar</option>
         <option value="ENG">England</option>

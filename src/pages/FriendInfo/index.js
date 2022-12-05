@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import axios from 'axios'
 
 export default function FriendInfo() {
   const friendsData = useSelector(state => state.friends.friends)
+  const usernameOfUser = useSelector(state => state.user.username)
+  console.log(usernameOfUser);
+  const [sentEmail, setSentEmail] = useState(false)
 
   const params = useParams()
   const friendId = params.friend
@@ -32,6 +36,15 @@ export default function FriendInfo() {
     )
   }
 
+  const sendNotif = (e) => {
+    e.preventDefault()
+    axios.post("http://127.0.0.1:5000/email", usernameOfUser, friendData.email)
+			.then((res) => {
+				setSentEmail(true)
+			})
+			.catch((err) => console.error(err));
+  }
+
 
   return (
     <>
@@ -40,7 +53,8 @@ export default function FriendInfo() {
     {renderDuplicates()}
     <h3>Needs:</h3>
     {renderNeeds()}
-    <button>Start trade</button>
+    <button onClick={sendNotif}>Start trade</button>
+    {sentEmail && <p>User notified</p>}
     </>
   )
 }

@@ -13,8 +13,8 @@ export default function Friends() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getFriendsData())
-  }, [])
+    dispatch(getFriendsData(friendsList))
+  }, [friendsList])
 
   const renderFriends = () => {
     return(
