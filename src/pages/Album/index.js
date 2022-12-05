@@ -13,7 +13,8 @@ export default function Album() {
   
   useEffect(() => {
     dispatch(getStickerData(country))
-  },[])
+    console.log(country);
+  },[country])
 
   const renderStickers = () => {
       return(
@@ -25,10 +26,11 @@ export default function Album() {
 
   return (
     <div className='album'>
-      <select>
-        <option>England</option>
-        <option>Brazil</option>
-        <option>Wales</option>
+      <select onChange={e => setCountry(e.target.value)}>
+        <option value="QAT">Qatar</option>
+        <option value="ENG">England</option>
+        <option value="BRA">Brazil</option>
+        <option value="WAL">Wales</option>
       </select>
       {renderStickers()}
       <button>Page Left</button>

@@ -14,14 +14,8 @@ const loadUserResult = (userData) => ({
         friends: userData.friends,
         location: userData.location
         }
-    });
+});
 
-// export const getUserData = (username) => {
-//     return async dispatch => {
-//         console.log("data retrieved");
-//         dispatch({type: 'TEST'})
-//     }
-// }
 
 export const getUserData = (username) => {
     return async dispatch => {
@@ -82,7 +76,12 @@ const fetchStickerData = async country => {
     try {
         // const stickerData = await axios.get(`http://127.0.0.1:5000/${country}`)
         // return { stickers: stickerData.data } ;
-        return { stickers: [{stickerId: "QAT1", name: "Qatar Team Photo", image: "https://cdn.shopify.com/s/files/1/0561/4639/5336/products/IMG_1790@2x.jpg",}, {stickerId: "QAT2", name: "Qatar Logo", image: "https://cdn.shopify.com/s/files/1/0561/4639/5336/products/IMG_2401_1789cccd-5ed2-4721-9930-ba05327f79a8@2x.jpg",}]} ;
+        if (country === "QAT") {
+            return { stickers: [{stickerId: "QAT1", name: "Qatar Team Photo", image: "https://cdn.shopify.com/s/files/1/0561/4639/5336/products/IMG_1790@2x.jpg",}, {stickerId: "QAT2", name: "Qatar Logo", image: "https://cdn.shopify.com/s/files/1/0561/4639/5336/products/IMG_2401_1789cccd-5ed2-4721-9930-ba05327f79a8@2x.jpg",}]} ;
+        } else if (country === "ENG") {
+            return { stickers: [{stickerId: "ENG1", name: "England Team Photo", image: "https://cdn.shopify.com/s/files/1/0561/4639/5336/products/IMG_1790@2x.jpg",}, {stickerId: "ENG2", name: "England Logo", image: "https://cdn.shopify.com/s/files/1/0561/4639/5336/products/IMG_2401_1789cccd-5ed2-4721-9930-ba05327f79a8@2x.jpg",}]} ;
+        }
+        
     } catch (err) {
         if (country.status === 404) { throw Error('That\'s not a valid username!') }
         throw new Error(err.message)
