@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './style.css'
+import { getUserData } from '../../actions';
 
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
 				if (res.data.message === "Welcome Panini Player") {
 					console.log("USERNAME:", formData["username"]);
 					setLogIn(formData);
+          dispatch(getUserData(formData["username"]))
           navigate("/dashboard")
 				} else {
 					console.log("FAILED");
