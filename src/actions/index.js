@@ -33,8 +33,8 @@ export const getUserData = (username) => {
 const fetchUserData = async username => {
     try {
         const userData = await axios.get(`http://localhost:5000/users/${username}`)
-        console.log(userData);
-        return { userId: userData.data.id, username: userData.data.username, cards: userData.data.cards, friends: userData.data.friends, location: userData.data.location} ;
+        console.log(userData.data[0]);
+        return { userId: userData.data[0].id, username: userData.data[0].username, cards: userData.data[0].cards, friends: userData.data[0].friends, location: userData.data[0].location} ;
         // return { userId: 12, username: "test", cards: "test", friends: ["test"], location: "test"} ;
     } catch (err) {
         if (username.status === 404) { throw Error('That\'s not a valid username!') }
@@ -99,8 +99,8 @@ const loadFriendsResult = ({friends}) => ({
     payload: {
         friends: friends.map(data => {
             return {
-                userId: data.userId,
-                path: `/dashboard/friends/${data.userId}`,
+                userId: data.id,
+                path: `/dashboard/friends/${data.id}`,
                 username: data.username,
                 location: data.location,
                 email: data.email,
@@ -110,11 +110,11 @@ const loadFriendsResult = ({friends}) => ({
         }
     });
 
-export const getFriendsData = (username) => {
+export const getFriendsData = (userId) => {
     return async dispatch => {
         dispatch(loadingFriends())
         try{
-            const data = await fetchFriendsData(username)
+            const data = await fetchFriendsData(userId)
             dispatch(loadFriendsResult(data))
         } catch (err) {
             console.warn(err.message)
@@ -123,14 +123,18 @@ export const getFriendsData = (username) => {
     }
 }
 
-const fetchFriendsData = async username => {
+const fetchFriendsData = async userId => {
     try {
-        let friendsList = await axios.get(`http://localhost:5000/users/${username}/friends_list`)
+        let friendsList = await axios.get(`http://localhost:5000/users/${userId}/friends_list`)
+        console.log(friendsList.data.length);
         let friendsArray = []
-        for(let i = 0; i < friendsList; i ++) {
-            let friendsData = await axios.get(`http://127.0.0.1:5000/users/${friendsList[i].username}`)
+        for(let i = 1; i < friendsList.data.length; i ++) {
+            console.log("loop");
+            let friendsData = await axios.get(`http://127.0.0.1:5000/friends/${friendsList.data[i]}`)
+            console.log(friendsData);
             friendsArray.push(friendsData.data)
         }
+        console.log(friendsArray);
         return { friends: friendsArray } ;
         // return { friends: [{
         //     userId: 123,
@@ -140,7 +144,7 @@ const fetchFriendsData = async username => {
         //     email: "K@k.com",
         //     cards: ["QAT1"]}]} ;
     } catch (err) {
-        if (username.status === 404) { throw Error('That\'s not a valid username!') }
+        if (userId.status === 404) { throw Error('That\'s not a valid username!') }
         throw new Error(err.message)
     }
 }

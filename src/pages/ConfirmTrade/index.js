@@ -1,23 +1,36 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
+import { getUserData } from '../../actions'
 
 export default function ConfirmTrade() {
 
     const [formData, setFormData] = useState({})
     const [added, setAdded] = useState(false)
+    const userId = useSelector(state => state.user.userId)
+    const userCards = useSelector(state => state.user.cards)
+    const username = useSelector(state => state.user.username)
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         const { name, value } =e.target
         setFormData({...formData, [name]: value});
         }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        axios.patch("http://127.0.0.1:5000/trade", formData)
-            .then((res) => {
+        try {
+            const removeSticker = await axios.put(`http://127.0.0.1:5000/stickers/${formData.stickerIdTraded}`,{user: userId})
+            dispatch(getUserData(username))
+            console.log(removeSticker.data);
+            console.log(userCards);
+            if (removeSticker.data !== userCards) {
+                const addSticker = await axios.post(`http://127.0.0.1:5000/stickers/${formData.stickerIdReceived}`, {user: userId})
                 setAdded(true)
-            })
-            .catch((err) => console.error(err));
+            }
+        } catch (error) {
+            
+        }
     }
 
   return (
