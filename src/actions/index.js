@@ -104,7 +104,8 @@ const loadFriendsResult = ({friends}) => ({
                 username: data.username,
                 location: data.location,
                 email: data.email,
-                cards: data.cards
+                cards: data.cards,
+                trade: false
             }
         })
         }
@@ -148,3 +149,10 @@ const fetchFriendsData = async userId => {
         throw new Error(err.message)
     }
 }
+
+// Trade Available
+
+export const tradeAvailable = (userId) => ({
+    type: 'TRADE',
+    payload: userId
+})
