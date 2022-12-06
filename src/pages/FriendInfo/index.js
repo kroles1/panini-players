@@ -38,7 +38,7 @@ export default function FriendInfo() {
 
   const sendNotif = (e) => {
     e.preventDefault()
-    axios.post("http://127.0.0.1:5000/email", usernameOfUser, friendData.email)
+    axios.post("http://127.0.0.1:5000/trade", {username: usernameOfUser, receiver: friendData.email})
 			.then((res) => {
 				setSentEmail(true)
 			})

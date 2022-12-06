@@ -1,10 +1,15 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserData } from '../../actions'
 
 export default function AddSticker() {
 
     const [formData, setFormData] = useState({})
     const [added, setAdded] = useState(false)
+    const userId = useSelector(state => state.user.userId)
+    const username = useSelector(state => state.user.username)
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         const { name, value } =e.target
@@ -13,8 +18,9 @@ export default function AddSticker() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.patch("http://127.0.0.1:5000/addSticker", formData)
+        axios.post(`http://127.0.0.1:5000/stickers/${formData.stickerId}`, {user: userId})
             .then((res) => {
+                dispatch(getUserData(username))
                 setAdded(true)
             })
             .catch((err) => console.error(err));

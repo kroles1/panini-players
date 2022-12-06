@@ -1,8 +1,8 @@
 const initState = {
     userId: 0,
     username: "",
-    cards: [],
-    friends: [],
+    cards: "",
+    friends: "",
     location: "",
     loading: false
 }
