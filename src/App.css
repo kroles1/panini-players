@@ -18,4 +18,6 @@ body {
   background-color: var(--main-bg-color)
 }
 
-
+.trade {
+  background-color: blue;
+}

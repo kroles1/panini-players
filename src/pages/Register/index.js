@@ -47,7 +47,35 @@ export default function Register() {
       <input type='text' placeholder='ID' name="id"></input>
       <input type="text" placeholder="Username" name="username"></input>
       <input type="email" placeholder="Email" name="email"></input>
-      <input type='text' placeholder="Location" name="location"></input>
+      <label>Choose the closest city</label>
+      <select name='location'>
+        <option value="London">London</option>
+        <option value="Birmingham">Birmingham</option>
+        <option value="Leeds">Leeds</option>
+        <option value="Liverpool">Liverpool</option>
+        <option value="Glasgow">Glasgow</option>
+        <option value="Sheffield">Sheffield</option>
+        <option value="Bradford">Bradford</option>
+        <option value="Edinburgh">Edinburgh</option>
+        <option value="Manchester">Manchester</option>
+        <option value="Bristol">Bristol</option>
+        <option value="Leicester">Leicester</option>
+        <option value="Coventry">Coventry</option>
+        <option value="Cardiff">Cardiff</option>
+        <option value="Belfast">Belfast</option>
+        <option value="Nottingham">Nottingham</option>
+        <option value="Hull">Hull</option>
+        <option value="Newcastle">Newcastle</option>
+        <option value="Southampton">Southampton</option>
+        <option value="Serby">Derby</option>
+        <option value="Portsmouth">Portsmouth</option>
+        <option value="Brighton">Brighton</option>
+        <option value="Plymouth">Plymouth</option>
+        <option value="Northampton">Northampton</option>
+        <option value="Reading">Reading</option>
+        <option value="Aberdeen">Aberdeen</option>
+        <option value="Stoke">Stoke</option>
+      </select>
       <input type="password" placeholder="Password" name="password_1"></input>
       <input type="password" placeholder="Confirm password" name="password_2"></input>
       <input type="submit" value="Register"></input>

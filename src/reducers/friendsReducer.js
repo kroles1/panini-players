@@ -6,7 +6,8 @@ const initState = {
             username: "friend1",
             location: "",
             email: "",
-            cards: ""
+            cards: "",
+            trade: false
         },
         {
             userId: 2,
@@ -14,7 +15,8 @@ const initState = {
             username: "friend2",
             location: "",
             email: "",
-            cards: ""
+            cards: "",
+            trade: false
         },
         {
             userId: 3,
@@ -22,7 +24,8 @@ const initState = {
             username: "friend3",
             location: "",
             email: "",
-            cards: ""
+            cards: "",
+            trade: false
         }
     ],
     loading: false
@@ -34,6 +37,16 @@ const friendsReducer = (state=initState, action) => {
             return { ...state, loading: true }
         case 'LOAD_FRIENDS_RESULT':
             return { ...state, friends: action.payload.friends, loading: false }
+        case 'TRADE':
+            return { ...state, friends: state.friends.map((el) =>{
+                if(action.payload == el.userId){
+                    return {
+                        ...el,
+                        trade: true
+                    }
+                }
+                return el
+            })}
         default:
             return state;
     }
