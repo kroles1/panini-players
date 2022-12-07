@@ -2,12 +2,11 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FriendItem } from '../../components'
 import { useDispatch, useSelector } from 'react-redux'
-import { getFriendsData, tradeAvailable } from '../../actions'
+import { getFriendsData } from '../../actions'
 
 export default function Friends() {
   const friendsData = useSelector(state => state.friends.friends)
   const userCardsStr = useSelector(state => state.user.cards)
-  // const friendsList = useSelector(state => state.user.friends)
   console.log(friendsData);
   const userId = useSelector(state => state.user.userId)
 
@@ -17,7 +16,6 @@ export default function Friends() {
   const userCardsArray = userCardsStr.split(' ')
   let userNeeds = []
   let userDuplicates = []
-  // console.log(userCardsArray);
   userCardsArray.forEach(card => {
     let [code, num] = card.split('-')
     if (num == 0) {
@@ -72,20 +70,10 @@ export default function Friends() {
         }
       })
     })
-
     trades.push({id: friend.id, give: give, get: get})
-    // const cardToGet = friend.duplicates.filter(card => {
-
-    //   for(let i = 0; i < userNeeds.length; i++){
-    //     return card == userNeeds[0]
-    //   }
-    // })
-    // trades.push({id: friend.id, get: cardToGet})
   })
 
   console.log(trades);
-
-  // const updatedFriends = friendsData.
 
   let friendsToTradeWith = []
 
@@ -97,51 +85,20 @@ export default function Friends() {
 
   console.log(friendsToTradeWith);
 
-//   friendsData.map((el) =>{
-//     if(action.payload == el.userId){
-//         return {
-//             ...el,
-//             trade: true
-//         }
-//     }
-//     return el
-// })
-  // const friend1CardsArray = friendsData[0].cards.split(' ')
-  // console.log(friend1CardsArray);
-  
-  // userCardsArray.array.forEach(card => {
-    
-  // });
-  
-  // for (let card in userCardsArray) {
-  //   let [codeU, numU] = card.split('-')
-  //   let [codeF, numF] = friend1CardsArray[userCardsArray.indexOf(card)]
-  // }
-
   useEffect(() => {
     dispatch(getFriendsData(userId))
   }, [])
 
   const renderFriends = () => {
     return(
-      // friendsToTradeWith.forEach((trader) => {
         friendsData.map((friend) => {
           for(let i = 0; i < friendsToTradeWith.length; i++){
             if (friend.userId == friendsToTradeWith[i]){
             return <button className="trade" onClick={() => navigate(friend.path)}><FriendItem username={friend.username} /></button>
             }
-            return <button onClick={() => navigate(friend.path)}><FriendItem username={friend.username} /></button>
           }
+          return <button onClick={() => navigate(friend.path)}><FriendItem username={friend.username} /></button>
         })
-      // })
-      // friendsData.map((friend) => {
-      //   friendsToTradeWith.forEach((trader) => {
-      //     if(friend.userId == trader) {
-      //       return <button className="trade" onClick={() => navigate(friend.path)}><FriendItem username={friend.username} /></button>
-      //     }
-          // return <button onClick={() => navigate(friend.path)}><FriendItem username={friend.username} /></button>
-        // })
-      // })
   )
 }
 
