@@ -157,3 +157,55 @@ export const tradeAvailable = (userId) => ({
     type: 'TRADE',
     payload: userId
 })
+
+// For public reducer 
+const loadingPublic = () => ({ type: 'LOADING_PUBLIC'});
+
+const loadPublicResult = ({publicUsers}) => ({
+    type: 'LOAD_PUBLIC_RESULT',
+    payload: {
+        publicUsers: publicUsers.map(data => {
+            return {
+                userId: data.id,
+                path: `/dashboard/publictrade/${data.id}`,
+                username: data.username,
+                location: data.location,
+                email: data.email,
+                cards: data.cards,
+                trade: false
+            }
+        })
+        }
+    });
+
+export const getPublicData = (location) => {
+    return async dispatch => {
+        dispatch(loadingPublic())
+        try{
+            const data = await fetchPublicData(location)
+            dispatch(loadPublicResult(data))
+        } catch (err) {
+            console.warn(err.message)
+            dispatch({ type: 'SET_ERROR' })
+        }
+    }
+}
+
+const fetchPublicData = async location => {
+    try {
+        let publicData = await axios.get(`http://localhost:5000/users/location/${location}`)
+        // console.log(publicData.data);
+        let publicArray = []
+        // for(let i = 1; i < publicList.data.length; i ++) {
+        //     console.log("public");
+        //     let publicData = await axios.get(`http://127.0.0.1:5000/friends/${friendsList.data[i]}`)
+        //     console.log(friendsData);
+            publicArray.push(publicData.data)
+        // }
+        // console.log(friendsArray);
+        return { publicUsers: publicData.data } ;
+    } catch (err) {
+        if (location.status === 404) { throw Error('That\'s not a valid location!') }
+        throw new Error(err.message)
+    }
+}
