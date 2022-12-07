@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
  
 export default function Chat({ socket }) {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
- 
+
   const handleText = (e) => {
     const inputMessage = e.target.value;
     setMessage(inputMessage);
@@ -30,11 +31,11 @@ export default function Chat({ socket }) {
  
   return (
     <div>
-      <h2>WebSocket Communication</h2>
+      <h2>Global Chat</h2>
       <input type="text" value={message} onChange={handleText} />
       <button onClick={handleSubmit}>submit</button>
       <ul>
-        {messages.map((message, ind) => {
+        {messages.map((message, ind, data) => {
           return <li key={ind}>{message}</li>;
         })}
       </ul>
