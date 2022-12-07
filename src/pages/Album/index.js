@@ -7,12 +7,22 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Album() {
   const stickerData = useSelector(state => state.stickers.stickers)
-  const userData = useSelector(state => state.user)
-  console.log(userData);
+  const userStickerData = useSelector(state => state.user.cards)
+  console.log(userStickerData);
   const [country, setCountry] = useState("QAT")
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  const userStickersArray = userStickerData.split(' ')
+  let userStickers = []
+  userStickersArray.forEach(sticker => {
+    let [code, num] = sticker.split('-')
+    if (num > 0) {
+      userStickers.push(code)
+    }
+  });
+  console.log(userStickers);
   
   useEffect(() => {
     dispatch(getStickerData(country))
@@ -22,7 +32,18 @@ export default function Album() {
   const renderStickers = () => {
       return(
         stickerData.map((sticker) => {
-          return <Sticker name={sticker.name} image={sticker.image} stickerId={sticker.stickerId} />
+          for(let i = 0; i < userStickers.length; i++){
+            if(sticker.stickerId == userStickers[i]) {
+              console.log(sticker.stickerId);
+              return <Sticker name={sticker.name} image={sticker.image} stickerId={sticker.stickerId} />
+            }
+          }
+          console.log(sticker.stickerId, "hidden");
+          return(
+            <div className="stickerHidden">
+              <Sticker  name={sticker.name} image={sticker.image} stickerId={sticker.stickerId} />
+            </div>
+          ) 
         })
     )
   }
