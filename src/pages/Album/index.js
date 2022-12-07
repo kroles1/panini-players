@@ -35,7 +35,11 @@ export default function Album() {
           for(let i = 0; i < userStickers.length; i++){
             if(sticker.stickerId == userStickers[i]) {
               console.log(sticker.stickerId);
-              return <Sticker name={sticker.name} image={sticker.image} stickerId={sticker.stickerId} />
+              return(
+                <div className="sticker">
+                  <Sticker  name={sticker.name} image={sticker.image} stickerId={sticker.stickerId} />
+                </div>
+              ) 
             }
           }
           console.log(sticker.stickerId, "hidden");
@@ -87,7 +91,9 @@ export default function Album() {
         <option value="KOR">South Korea</option>
         <option value="FWC">Special</option>
       </select>
-      {renderStickers()}
+      <div className='stickers'>
+        {renderStickers()}
+      </div>
       <button>Page Left</button>
       <button>Page Right</button>
     </div>

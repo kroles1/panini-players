@@ -7,3 +7,23 @@
    filter: grayscale(100%);
    opacity: 0.2;
 }
+
+img {
+   width: 200px;
+}
+
+.stickers {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.sticker {
+   padding-left: 25px;
+   padding-right: 25px;
+}
+
+.stickerHidden {
+   padding-left: 25px;
+   padding-right: 25px;
+}
