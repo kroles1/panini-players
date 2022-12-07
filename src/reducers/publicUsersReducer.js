@@ -3,6 +3,7 @@ const initState = {
         {
             userId: 1,
             username: "friend1",
+            path: `/dashboard/public/1`,
             location: "",
             email: "",
             cards: "",
@@ -10,6 +11,7 @@ const initState = {
         },
         {
             userId: 2,
+            path: `/dashboard/public/2`,
             username: "friend2",
             location: "",
             email: "",
@@ -18,6 +20,7 @@ const initState = {
         },
         {
             userId: 3,
+            path: `/dashboard/public/3`,
             username: "friend3",
             location: "",
             email: "",

@@ -166,6 +166,7 @@ const loadPublicResult = ({publicUsers}) => ({
         publicUsers: publicUsers.map(data => {
             return {
                 userId: data.id,
+                path: `/dashboard/publictrade/${data.id}`,
                 username: data.username,
                 location: data.location,
                 email: data.email,

@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import { Home, Register, Album, Friends, AddFriend, FriendInfo, Public, AddSticker, ConfirmTrade, Profile} from "./pages"
+import { Home, Register, Album, Friends, AddFriend, FriendInfo, Public, AddSticker, ConfirmTrade, Profile, PublicUserInfo} from "./pages"
 import Layout from "./layout"
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
         <Route path="friends/add" element={<AddFriend />} />
         <Route path="friends/:friend" element={<FriendInfo />} />
         <Route path="public" element={<Public />} />
+        <Route path="publictrade/:user" element={<PublicUserInfo />} />
       </Route>
     </Routes>
     </>
