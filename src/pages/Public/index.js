@@ -6,6 +6,7 @@ import { getPublicData } from '../../actions'
 import { Chat } from '../../components';
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
+import {PublicItem} from '../../components'
 let endPoint = "http://localhost:5000";
 
 export default function Public() {
@@ -15,10 +16,12 @@ export default function Public() {
   const publicData = useSelector(state => state.publicUsers.publicUsers)
   const userCardsStr = useSelector(state => state.user.cards)
   const location = useSelector(state => state.user.location)
+  const mainUserId = useSelector(state => state.user.userId)
 
-  // const Data = useSelector(state => state)
+
   const dispatch = useDispatch()
-// console.log(Data);
+  const navigate = useNavigate()
+console.log(publicData);
   const userCardsArray = userCardsStr.split(' ')
   let userNeeds = []
   let userDuplicates = []
@@ -35,7 +38,6 @@ export default function Public() {
   // console.log(userDuplicates);
 
   let publicNAndD = []
-  
 
   publicData.forEach(user => {
     let publicNeeds = []
@@ -81,7 +83,7 @@ export default function Public() {
     trades.push({id: user.id, give: give, get: get})
   })
 
-  console.log(trades);
+  // console.log(trades);
 
 
   let usersToTradeWith = []
@@ -92,7 +94,8 @@ export default function Public() {
     }
   })
 
-  console.log(usersToTradeWith);
+  // console.log(usersToTradeWith);
+  
    
 
   useEffect(() => {
@@ -104,13 +107,20 @@ export default function Public() {
         publicData.map((user) => {
           for(let i = 0; i < usersToTradeWith.length; i++){
             if (user.userId == usersToTradeWith[i]){
-            return <button className="trade">{user.username}</button>
+            return <button className="trade" onClick={() => navigate(user.path)}><PublicItem username={user.username} /></button>
+            // return <button className="trade">{user.username}</button>
+            }
+            else if (user.userId == mainUserId){
+              return <break></break>
             }
           }
-          return <button>{user.username}</button>
+          return <button onClick={() => navigate(user.path)}><PublicItem username={user.username} /></button>
+          // return <button>{user.username}</button>
         })
     )
 }
+
+
 //  socket io
   const handleClick = () => {
     if (buttonStatus === false) {
@@ -152,7 +162,7 @@ export default function Public() {
       <>
       <button onClick={handleClick}>turn chat off</button>
       <div className="line">
-        {!loading && <Chat socket={socketInstance} />}
+        {!loading && <Chat socket={socketInstance} />} 
       </div>
     </>
   )}
