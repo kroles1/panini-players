@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import { Home, Register, Album, Friends, AddFriend, FriendInfo, Public, AddSticker, ConfirmTrade} from "./pages"
+import { Home, Register, Album, Friends, AddFriend, FriendInfo, Public, AddSticker, ConfirmTrade, Profile} from "./pages"
 import Layout from "./layout"
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path='/dashboard' element={<Layout />} >
         <Route index element={<Album />} />
+        <Route path="profile" element={<Profile />} />
         <Route path="addSticker" element={<AddSticker />} />
         <Route path="confirmTrade" element={<ConfirmTrade />} />
         <Route path="friends" element={<Friends />} />

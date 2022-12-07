@@ -44,7 +44,6 @@ export default function Register() {
   return (
     <>
     <form className='register' onSubmit={handleSubmit}>
-      <input type='text' placeholder='ID' name="id"></input>
       <input type="text" placeholder="Username" name="username"></input>
       <input type="email" placeholder="Email" name="email"></input>
       <label>Choose the closest city</label>

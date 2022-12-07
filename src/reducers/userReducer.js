@@ -1,5 +1,5 @@
 const initState = {
-    userId: 0,
+    userId: '',
     username: "",
     cards: "",
     friends: "",
