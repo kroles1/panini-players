@@ -27,3 +27,33 @@ img {
    padding-left: 25px;
    padding-right: 25px;
 }
+
+.stars{
+   width: 40px;
+   visibility: hidden;
+}
+
+/* .stars:hover{
+   width: 40px;
+   visibility: visible;
+} */
+
+.starsContainer{
+   display: flex;
+   flex-direction: row;
+   list-style: none;
+   position: relative;
+   bottom: 150px;
+   /* right: 40px; */
+   justify-content: center;
+   padding: 0;
+}
+
+.stickerId {
+   position: relative;
+   bottom: 150px;
+   text-align: center;
+   font-weight: bold;
+   font-size: larger;
+   color: white;
+}

@@ -55,6 +55,7 @@ const loadStickersResult = ({stickers}) => ({
                 stickerId: data.code,
                 name: data.name,
                 image: `https://${data.image}`,
+                rarity: data.rarity
             }
         })
         }

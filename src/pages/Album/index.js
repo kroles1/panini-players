@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Album() {
   const stickerData = useSelector(state => state.stickers.stickers)
   const userStickerData = useSelector(state => state.user.cards)
-  console.log(userStickerData);
+  console.log(stickerData);
   const [country, setCountry] = useState("QAT")
 
   const dispatch = useDispatch()
@@ -22,7 +22,7 @@ export default function Album() {
       userStickers.push(code)
     }
   });
-  console.log(userStickers);
+  // console.log(userStickers);
   
   useEffect(() => {
     dispatch(getStickerData(country))
@@ -34,18 +34,18 @@ export default function Album() {
         stickerData.map((sticker) => {
           for(let i = 0; i < userStickers.length; i++){
             if(sticker.stickerId == userStickers[i]) {
-              console.log(sticker.stickerId);
+              // console.log(sticker.stickerId);
               return(
                 <div className="sticker">
-                  <Sticker  name={sticker.name} image={sticker.image} stickerId={sticker.stickerId} />
+                  <Sticker  name={sticker.name} image={sticker.image} stickerId={sticker.stickerId} rarity={sticker.rarity} owned={true}/>
                 </div>
               ) 
             }
           }
-          console.log(sticker.stickerId, "hidden");
+          // console.log(sticker.stickerId, "hidden");
           return(
             <div className="stickerHidden">
-              <Sticker  name={sticker.name} image={sticker.image} stickerId={sticker.stickerId} />
+              <Sticker  name={sticker.name} image={sticker.image} stickerId={sticker.stickerId} rarity={sticker.rarity} owned={false}/>
             </div>
           ) 
         })
