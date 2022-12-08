@@ -301,8 +301,8 @@ describe('add friend/request trade', () => {
   })
 
   it('render cards that can be given/received', () => {
-    cy.get('#root > :nth-child(4)').should('contain', "QAT1")
-    cy.get('#root > :nth-child(6)').should('contain', "00")
+    cy.get('.stickersGive > .stickerCodes').should('contain', "QAT1")
+    cy.get('.stickersGet > .stickerCodes').should('contain', "00")
   })
 
   it('start trade with friend', () => {
