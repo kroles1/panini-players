@@ -18,7 +18,7 @@ export default function AddSticker() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`https://panini-players-backend.onrender.com/stickers/${formData.stickerId}`, {user: userId})
+        axios.post(`http://127.0.0.1:5000/stickers/${formData.stickerId}`, {user: userId})
             .then((res) => {
                 dispatch(getUserData(username))
                 setAdded(true)
