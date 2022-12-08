@@ -32,7 +32,7 @@ export const getUserData = (username) => {
 
 const fetchUserData = async username => {
     try {
-        const userData = await axios.get(`http://localhost:5000/users/${username}`)
+        const userData = await axios.get(`https://panini-players-backend.onrender.com/users/${username}`)
         console.log(userData.data[0]);
         return { userId: userData.data[0].id, username: userData.data[0].username, cards: userData.data[0].cards, friends: userData.data[0].friends, location: userData.data[0].location} ;
         // return { userId: 12, username: "test", cards: "test", friends: ["test"], location: "test"} ;
@@ -76,7 +76,7 @@ export const getStickerData = (country) => {
 
 const fetchStickerData = async country => {
     try {
-        const stickerData = await axios.get(`http://127.0.0.1:5000/country/${country}`)
+        const stickerData = await axios.get(`https://panini-players-backend.onrender.com/country/${country}`)
         return { stickers: stickerData.data } ;
         // if (country === "QAT") {
         //     return { stickers: [{stickerId: "QAT1", name: "Qatar Team Photo", image: "https://cdn.shopify.com/s/files/1/0561/4639/5336/products/IMG_1790@2x.jpg",}, {stickerId: "QAT2", name: "Qatar Logo", image: "https://cdn.shopify.com/s/files/1/0561/4639/5336/products/IMG_2401_1789cccd-5ed2-4721-9930-ba05327f79a8@2x.jpg",}]} ;
@@ -127,12 +127,12 @@ export const getFriendsData = (userId) => {
 
 const fetchFriendsData = async userId => {
     try {
-        let friendsList = await axios.get(`http://localhost:5000/users/${userId}/friends_list`)
+        let friendsList = await axios.get(`https://panini-players-backend.onrender.com/users/${userId}/friends_list`)
         console.log(friendsList.data.length);
         let friendsArray = []
         for(let i = 1; i < friendsList.data.length; i ++) {
             console.log("loop");
-            let friendsData = await axios.get(`http://127.0.0.1:5000/friends/${friendsList.data[i]}`)
+            let friendsData = await axios.get(`https://panini-players-backend.onrender.com/friends/${friendsList.data[i]}`)
             console.log(friendsData);
             friendsArray.push(friendsData.data)
         }
@@ -193,12 +193,12 @@ export const getPublicData = (location) => {
 
 const fetchPublicData = async location => {
     try {
-        let publicData = await axios.get(`http://localhost:5000/users/location/${location}`)
+        let publicData = await axios.get(`https://panini-players-backend.onrender.com/users/location/${location}`)
         // console.log(publicData.data);
         let publicArray = []
         // for(let i = 1; i < publicList.data.length; i ++) {
         //     console.log("public");
-        //     let publicData = await axios.get(`http://127.0.0.1:5000/friends/${friendsList.data[i]}`)
+        //     let publicData = await axios.get(`https://panini-players-backend.onrender.com/friends/${friendsList.data[i]}`)
         //     console.log(friendsData);
             publicArray.push(publicData.data)
         // }

@@ -28,7 +28,7 @@ export default function Register() {
 		const formData = getFormData(e.target);
 		console.log(formData, "FORM DATA");
 
-		axios.post("http://127.0.0.1:5000/register", formData)
+		axios.post("https://panini-players-backend.onrender.com/register", formData)
 			.then((res) => {
 				console.log(res, "POST RESPONSE");
 				if (res.data.message === "New user created") {

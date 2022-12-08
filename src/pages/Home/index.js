@@ -17,7 +17,7 @@ export default function Home() {
   const handleSubmit = (e) => {
     e.preventDefault();
 		const formData = getFormData(e.target);
-		axios.post("http://127.0.0.1:5000/login", formData)
+		axios.post("https://panini-players-backend.onrender.com/login", formData)
 			.then((res) => {
 				console.log(res.data, "POST RESPONSE");
 				if (res.data.message === "Welcome Panini Player") {

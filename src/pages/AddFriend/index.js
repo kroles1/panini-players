@@ -14,7 +14,7 @@ export default function AddFriend() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post(`http://127.0.0.1:5000/users/${userId}/friends`, formData)
+    axios.post(`https://panini-players-backend.onrender.com/users/${userId}/friends`, formData)
 			.then((res) => {
 				setAdded(true)
 			})
