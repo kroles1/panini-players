@@ -1,0 +1,46 @@
+.trade-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trade-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 40px;
+}
+
+.form-input > input {
+    margin-left: 45px;
+    margin-right: 45px;
+    padding: 10px;
+    text-align: center;
+}
+
+.trade-sticker-btn {
+    height: 25%;
+    margin: 25px;
+    font-weight: bold;
+    font-size: larger;
+    background-color: #aa8531;
+    border: 2px solid#7b6710;
+    width: 200px;
+}
+
+.sticker-img-unadded {
+    margin: 40px;
+    filter: grayscale(100%);
+    opacity: 0.2;
+}
+
+.sticker-img-added {
+    margin: 40px;
+    opacity: 1;
+}
