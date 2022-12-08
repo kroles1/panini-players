@@ -4,7 +4,7 @@ body {
     align-items: center;
 }
 
-.register {
+.registerForm {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -16,6 +16,69 @@ body {
     background-color: var(--minor-bg-color)
 }
 
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formInput {
+    height: 30px;
+    width: 20vw;
+}
+
+.submitBtn {
+    height: 30px;
+    width: 10vw;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
 input {
     margin: 5px;
+}
+
+label {
+    color: white;
+}
+
+#registerContainer {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+#flagsLeft,
+#flagsRight {
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    height: 50vh;
+    margin: 5px
+}
+
+.groupA,
+.groupB,
+.groupC,
+.groupD,
+.groupE,
+.groupF,
+.groupG,
+.groupH {
+    display: flex;
+    padding: 10px;
+}
+
+.flag {
+    width: 75px;
+    border: 1px solid gold;
+    /* margin: 5px */
+}
+
+#logo {
+    width: 300px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
