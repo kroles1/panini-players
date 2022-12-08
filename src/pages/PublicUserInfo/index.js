@@ -92,7 +92,7 @@ export default function PublicUserInfo() {
 
   const sendNotif = (e) => {
     e.preventDefault()
-    axios.post("https://panini-players-backend.onrender.com/trade", {username: usernameOfUser, receiver: publicData.email})
+    axios.post("http://127.0.0.1:5000/trade", {username: usernameOfUser, receiver: publicData.email})
 			.then((res) => {
 				setSentEmail(true)
 			})

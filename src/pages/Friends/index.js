@@ -106,7 +106,7 @@ export default function Friends() {
   return (
     <>
     <div className='friends'>
-      <button onClick={() => navigate("/dashboard/friends/add")}>Add friend</button>
+      <button onClick={() => navigate("/dashboard/friends/add")} className="addFriendButton">Add friend</button>
       {renderFriends()}
     </div>
     </>
