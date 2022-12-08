@@ -42,13 +42,13 @@ export default function ConfirmTrade() {
         try {
             setImgClass('sticker-img-added')
             const removeSticker = await axios.put(`http://127.0.0.1:5000/stickers/${formData.stickerIdTraded}`,{user: userId})
-            dispatch(getUserData(username))
             console.log(removeSticker.data);
             console.log(userCards);
             if (removeSticker.data !== userCards) {
                 const addSticker = await axios.post(`http://127.0.0.1:5000/stickers/${formData.stickerIdReceived}`, {user: userId})
                 setAdded(true)
             }
+            dispatch(getUserData(username))
         } catch (error) {
             
         }
