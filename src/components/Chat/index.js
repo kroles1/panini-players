@@ -33,7 +33,7 @@ export default function Chat({ socket }) {
     <div  className="chatBox">
       <h2 className="globalChat">Global Chat</h2>
       <input className="inputChat" type="text" value={message} onChange={handleText} />
-      <button className="submitChat" onClick={handleSubmit}>submit</button>
+      <button className="submitChat" onClick={handleSubmit}>Submit</button>
       <ul>
         {messages.map((message, ind, data) => {
           return <li className="messeges" key={ind}>{message}</li>;

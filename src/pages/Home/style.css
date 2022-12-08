@@ -66,6 +66,9 @@ body {
 .formInput {
     height: 30px;
     width: 20vw;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: none;
 }
 
 input {
@@ -77,20 +80,41 @@ input {
     width: 10vw;
     cursor: pointer;
     margin-top: 20px;
+    font-weight: bold;
+    font-size: larger;
+    background-color: #aa8531;
+    border: 2px solid#7b6710;
+    border-radius: 10px;
+    color: white;
+}
+
+.submitBtn:hover {
+    background-color: #997b33;
 }
 
 .registerNav {
-    margin-top: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     height: 30px;
-    width: 7vw;
+    width: 10vw;
     cursor: pointer;
+    font-weight: bold;
+    font-size: larger;
+    background-color: #aa8531;
+    border: 2px solid#7b6710;
+    border-radius: 10px;
+    color: white;
+}
+
+.registerNav:hover {
+    background-color: #997b33;
 }
 
 a {
     text-decoration: none;
+    color: white;
 }
 
 a:active {
-    color: black;
+    /* color: black; */
 }
-

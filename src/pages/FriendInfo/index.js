@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import './style.css'
 
 export default function FriendInfo() {
   const friendsData = useSelector(state => state.friends.friends)
@@ -65,7 +66,7 @@ export default function FriendInfo() {
   const renderGives = () => {
     return(
       give.map((sticker) => {
-        return <p>{sticker}</p>
+        return <p className='stickerCodes'>{sticker}</p>
       })
     )
   }
@@ -73,7 +74,7 @@ export default function FriendInfo() {
   const renderGets = () => {
     return(
       get.map((sticker) => {
-        return <p>{sticker}</p>
+        return <p className='stickerCodes'>{sticker}</p>
       })
     )
   }
@@ -88,14 +89,22 @@ export default function FriendInfo() {
   }
 
   return (
-    <>
-    <h1>{friendData.username}</h1>
-    <h3>Cards you can give them:</h3>
-    {renderGives()}
-    <h3>Cards they can give you:</h3>
-    {renderGets()}
-    <button onClick={sendNotif}>Start trade</button>
-    {sentEmail && <p>User notified</p>}
-    </>
+    <div className='friendInfoPage'>
+      <div className='friendInfo'>
+        <h1 className='friendName'>{friendData.username}</h1>
+        <div className='stickersBoth'>
+          <div className='stickersGive'>
+            <h3>Stickers you can give them:</h3>
+            {renderGives()}
+          </div>
+          <div className='stickersGet'>
+            <h3>Stickers they can give you:</h3>
+            {renderGets()}
+          </div>
+        </div>
+      </div>
+    <button className='emailBtn' onClick={sendNotif}>Start trade</button>
+    {sentEmail && <p className='emailSent'>User notified</p>}
+    </div>
   )
 }

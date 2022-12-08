@@ -162,10 +162,10 @@ console.log(publicData);
     </div>
     <div className='chat'>
     {!buttonStatus ? (
-      <button className='chatBtn' onClick={handleClick}>turn chat on</button>
+      <button className='chatBtn' onClick={handleClick}>Turn chat on</button>
     ) : (
       <>
-      <button className='chatBtn' onClick={handleClick}>turn chat off</button>
+      <button className='chatBtn' onClick={handleClick}>Turn chat off</button>
       <div className="line">
         {!loading && <Chat socket={socketInstance} />} 
       </div>

@@ -46,7 +46,7 @@ export default function AddSticker() {
             <input className='text-input' type="text" placeholder="Sticker Code" name='stickerId' value={formData.stickerId} onChange={handleChange}></input>
             <input type="submit" value="Add" className='add-sticker-btn'></input>
         </form>
-        {added && <p>Sticker Added</p>}
+        {added && <p className='stickerAdded'>Sticker Added</p>}
     </div>
   )
 }

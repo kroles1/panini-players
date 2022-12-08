@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import './style.css'
 
 export default function PublicUserInfo() {
   const publicData = useSelector(state => state.publicUsers.publicUsers)
@@ -77,7 +78,7 @@ export default function PublicUserInfo() {
   const renderGives = () => {
     return(
       give.map((sticker) => {
-        return <p>{sticker}</p>
+        return <p className='stickerCodesUser'>{sticker}</p>
       })
     )
   }
@@ -85,14 +86,14 @@ export default function PublicUserInfo() {
   const renderGets = () => {
     return(
       get.map((sticker) => {
-        return <p>{sticker}</p>
+        return <p className='stickerCodesUser'>{sticker}</p>
       })
     )
   }
 
   const sendNotif = (e) => {
     e.preventDefault()
-    axios.post("http://127.0.0.1:5000/trade", {username: usernameOfUser, receiver: publicData.email})
+    axios.post("http://127.0.0.1:5000/trade", {username: usernameOfUser, receiver: publicUserData.email})
 			.then((res) => {
 				setSentEmail(true)
 			})
@@ -100,15 +101,23 @@ export default function PublicUserInfo() {
   }
 
   return (
-    <>
-    <h1>{publicUserData.username}</h1>
-    <h3>Cards you can give them:</h3>
-    {renderGives()}
-    <h3>Cards they can give you:</h3>
-    {renderGets()}
-    <button onClick={sendNotif}>Start trade</button>
-    {sentEmail && <p>User notified</p>} 
-    </>
+    <div className='userInfoPage'>
+      <div className='userInfo'>
+        <h1 className='userName'>{publicUserData.username}</h1>
+        <div className='stickersBothUser'>
+          <div className='stickersGiveUser'>
+            <h3>Stickers you can give them:</h3>
+              {renderGives()}
+          </div>
+          <div className='stickersGetUser'>
+            <h3>Stickers they can give you:</h3>
+            {renderGets()}
+          </div>
+        </div>
+      </div>
+    <button className='emailBtnUser' onClick={sendNotif}>Start trade</button>
+    {sentEmail && <p className='emailSentUser'>User notified</p>} 
+    </div>
   )
 }
 

@@ -69,7 +69,7 @@ export default function Profile() {
             <div className='profileValues'>
                 <h1>{user.username}</h1>
                 <h1>{user.userId}</h1>
-                <h1>{totalFriends(user.friends)}</h1>
+                <h1>{totalFriends(user.friends) - 1}</h1>
                 <h1>{totalStickers(user.cards)}</h1>
                 <h1>{completion(user.cards).toFixed(1)}%</h1>
                 <select onChange={handleLocation} name='location'>

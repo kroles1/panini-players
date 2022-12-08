@@ -1,0 +1,59 @@
+.friendInfoPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.friendInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border: solid 2px var(--main-bg-color);
+    color: var(--main-bg-color);
+}
+
+.stickersBoth {
+    display: flex;
+}
+
+.stickersBoth > div {
+    padding: 10px;
+}
+
+.stickersGive {
+    border-right: solid 2px var(--main-bg-color);
+}
+
+.friendName {
+    text-align: center;
+    border-bottom: solid 2px var(--main-bg-color);
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.emailBtn {
+    margin-top: 15px;
+    width: 20%;
+    font-weight: bold;
+    font-size: larger;
+    background-color: #aa8531;
+    border: 2px solid#7b6710;
+    border-radius: 10px;
+    color: white;
+}
+
+.emailBtn:hover {
+    background-color: #997b33;
+}
+
+.stickerCodes {
+    text-align: center;
+    font-weight: bold;
+}
+
+.emailSent {
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+}

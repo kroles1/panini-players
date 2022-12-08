@@ -1,7 +1,7 @@
 .publicUsers {
     display: flex;
     flex-direction: column;
-    overflow-x: scroll;
+    overflow-y: hidden;
     align-items:flex-end;
     text-align: center;
     height: 70vh;
@@ -10,6 +10,7 @@
 .notrade{
    margin: 5px;
    width: 25vw;
+   cursor: pointer;
 }
 
 .publicPage {
@@ -43,5 +44,16 @@
 .chatBtn {
     height: 60px;
     width: 140px;
-    border-radius: 50px;
+    /* border-radius: 50px; */
+    font-weight: bold;
+    font-size: larger;
+    background-color: #aa8531;
+    border: 2px solid#7b6710;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.chatBtn:hover {
+    background-color: #997b33;
 }

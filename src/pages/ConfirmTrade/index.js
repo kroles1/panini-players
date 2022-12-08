@@ -69,7 +69,7 @@ export default function ConfirmTrade() {
                 
                 <input className='trade-sticker-btn' type="submit" value="Trade Stickers"></input>
             </form>
-            {added && <p>Trade confirmed</p>}
+            {added && <p className='tradeConfirmed'>Trade confirmed</p>}
         </div>
     </div>
   )

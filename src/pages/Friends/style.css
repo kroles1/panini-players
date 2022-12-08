@@ -1,6 +1,12 @@
 .trade {
     background-color: var(--golden-colour);
-}  
+    color: white;
+    border: solid 2px white;
+}
+
+.trade:hover {
+    background-color: #997b33;
+}
 
 .friends {
     display: flex;
@@ -13,19 +19,27 @@
     margin: 15px;
     height: 50px;
     width: 250px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
+    font-weight: bold;
+    font-size: larger;
+    background-color: #aa8531;
+    border: 2px solid#7b6710;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
 }
 
 .renderFriends {
     display: flex;
     flex-direction: column;
     height: 70vh;
-    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .notrade{
     margin: 5px;
     width: 25vw;
+    cursor: pointer;
  }
 
  .friendHeader {
@@ -34,7 +48,7 @@
  }
 
 
-.addFriendButton {
+.addFriendBtn {
     padding: 10px;
     margin: 25px;
     font-weight: bold;
@@ -42,5 +56,10 @@
     background-color: #aa8531;
     border: 2px solid#7b6710;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.addFriendBtn:hover {
+    background-color: #997b33;
 }
 
