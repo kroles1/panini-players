@@ -28,10 +28,7 @@ export default function AddSticker() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-<<<<<<< HEAD
-=======
         setImgClass('add-sticker-img-added')
->>>>>>> b268eeced96267088f3a5b8b1ea346e88f542674
         axios.post(`http://127.0.0.1:5000/stickers/${formData.stickerId}`, {user: userId})
             .then((res) => {
                 dispatch(getUserData(username))
