@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getPublicData } from '../../actions'
+import './style.css'
 // socket io
 import { Chat } from '../../components';
 import io from "socket.io-client";
@@ -107,14 +108,14 @@ console.log(publicData);
         publicData.map((user) => {
           for(let i = 0; i < usersToTradeWith.length; i++){
             if (user.userId == usersToTradeWith[i]){
-            return <button className="trade" onClick={() => navigate(user.path)}><PublicItem username={user.username} /></button>
+            return <button className="trade notrade" onClick={() => navigate(user.path)}><PublicItem username={user.username} /></button>
             // return <button className="trade">{user.username}</button>
             }
             else if (user.userId == mainUserId){
               return <break></break>
             }
           }
-          return <button onClick={() => navigate(user.path)}><PublicItem username={user.username} /></button>
+          return <button className='notrade' onClick={() => navigate(user.path)}><PublicItem username={user.username} /></button>
           // return <button>{user.username}</button>
         })
     )
@@ -152,20 +153,25 @@ console.log(publicData);
     }
   }, [buttonStatus]);
   return (
-    <div>
-      <h1>Available Trades</h1>
+    <div className='publicPage'>
+      <div className='locationUsers'>
+      <h1 className='location'>Location: {location}</h1>
+      <div className='publicUsers'>
     {renderUsers()}
-    <div>Public</div>
+    </div>
+    </div>
+    <div className='chat'>
     {!buttonStatus ? (
-      <button onClick={handleClick}>turn chat on</button>
+      <button className='chatBtn' onClick={handleClick}>turn chat on</button>
     ) : (
       <>
-      <button onClick={handleClick}>turn chat off</button>
+      <button className='chatBtn' onClick={handleClick}>turn chat off</button>
       <div className="line">
         {!loading && <Chat socket={socketInstance} />} 
       </div>
     </>
   )}
+  </div>
   </div>
   )
 }

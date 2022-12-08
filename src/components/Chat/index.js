@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import './style.css'
  
 export default function Chat({ socket }) {
   const [message, setMessage] = useState("");
@@ -30,13 +30,13 @@ export default function Chat({ socket }) {
   }, [socket, messages]);
  
   return (
-    <div>
-      <h2>Global Chat</h2>
-      <input type="text" value={message} onChange={handleText} />
-      <button onClick={handleSubmit}>submit</button>
+    <div  className="chatBox">
+      <h2 className="globalChat">Global Chat</h2>
+      <input className="inputChat" type="text" value={message} onChange={handleText} />
+      <button className="submitChat" onClick={handleSubmit}>submit</button>
       <ul>
         {messages.map((message, ind, data) => {
-          return <li key={ind}>{message}</li>;
+          return <li className="messeges" key={ind}>{message}</li>;
         })}
       </ul>
     </div>

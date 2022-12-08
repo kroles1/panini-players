@@ -1,0 +1,47 @@
+.publicUsers {
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+    align-items:flex-end;
+    text-align: center;
+    height: 70vh;
+}
+
+.notrade{
+   margin: 5px;
+   width: 25vw;
+}
+
+.publicPage {
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+    justify-content: center;
+}
+
+.locationUsers {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.chat {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    list-style-type: none;
+}
+.location {
+    text-align: right;
+    margin-right: 45px;
+    color: white;
+}
+
+.chatBtn {
+    height: 60px;
+    width: 140px;
+    border-radius: 50px;
+}

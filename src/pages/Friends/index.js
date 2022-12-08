@@ -95,10 +95,10 @@ export default function Friends() {
         friendsData.map((friend) => {
           for(let i = 0; i < friendsToTradeWith.length; i++){
             if (friend.userId == friendsToTradeWith[i]){
-            return <button className="trade" onClick={() => navigate(friend.path)}><FriendItem username={friend.username} /></button>
+            return <button className="trade notrade" onClick={() => navigate(friend.path)}><FriendItem username={friend.username} /></button>
             }
           }
-          return <button onClick={() => navigate(friend.path)}><FriendItem username={friend.username} /></button>
+          return <button className='notrade' onClick={() => navigate(friend.path)}><FriendItem username={friend.username} /></button>
         })
   )
 }
@@ -106,8 +106,11 @@ export default function Friends() {
   return (
     <>
     <div className='friends'>
-      <button onClick={() => navigate("/dashboard/friends/add")} className="addFriendButton">Add friend</button>
+      <h1 className='friendHeader' >Friend List</h1>
+      <button  className='addFriendBtn' onClick={() => navigate("/dashboard/friends/add")}>Add friend</button>
+      <div className='renderFriends'>
       {renderFriends()}
+      </div>
     </div>
     </>
   )
