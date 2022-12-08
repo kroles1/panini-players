@@ -24,7 +24,7 @@ export default function Home() {
 					console.log("USERNAME:", formData["username"]);
 					setLogIn(formData);
           dispatch(getUserData(formData["username"]))
-          navigate("/dashboard")
+          navigate("/dashboard/album")
 				} else {
 					console.log("FAILED");
 				}

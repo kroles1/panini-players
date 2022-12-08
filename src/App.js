@@ -11,7 +11,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/register" element={<Register />} />
       <Route path='/dashboard' element={<Layout />} >
-        <Route index element={<Album />} />
+        <Route path='album' element={<Album />} />
         <Route path="profile" element={<Profile />} />
         <Route path="addSticker" element={<AddSticker />} />
         <Route path="confirmTrade" element={<ConfirmTrade />} />
