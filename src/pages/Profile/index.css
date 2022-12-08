@@ -1,3 +1,47 @@
 .test {
+    /* display: flex;
+    justify-content: flex-start; */
+}
+
+.profile {
+    background-color: var(--minor-bg-color);
+    border: solid 2px var(--golden-colour);
+    padding: 10px;
     display: flex;
+}
+
+.profile > .profileKeys > h1 {
+    /* text-align: center; */
+    color: var(--golden-colour);
+}
+
+.profile > .profileValues > h1 {
+    text-align: end;
+    color: white;
+}
+
+.profile > .profileValues > select {
+    align-self: flex-end;
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+    background-color: #aa8531;
+    border: 2px solid#7b6710;
+    margin-top: 30px;
+    appearance: none;
+    overflow: scroll;
+}
+
+.profileKeys {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.profileValues {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 10px;
 }

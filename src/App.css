@@ -1,6 +1,8 @@
 :root {
   --minor-bg-color: #561e65;
   --main-bg-color: #471c65;
+  --golden-colour: #aa8531;
+  /* --main-bg-color: white; */
 }
 
 html {
@@ -16,8 +18,4 @@ body {
   width: 100vw;
   margin: 0%;
   background-color: var(--main-bg-color)
-}
-
-.trade {
-  background-color: blue;
 }

@@ -1,17 +1,29 @@
 .navbar {
     text-align: center;
-    color: black;
+    color: white;
     height: 50px;
-    padding-top: 20px;
+    width: 100vw;
+    padding: 5px;
     border: solid 1px black;
+    background-color: var(--minor-bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
 }
 
 .navlink {
-    margin: 10px;
+    margin: auto;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
 }
 
 .navlink:focus {
-    color: red;
+    color: #aa8531;
 }
 
 a {
