@@ -20,12 +20,12 @@ export default function ConfirmTrade() {
     const handleSubmit = async(e) => {
         e.preventDefault()
         try {
-            const removeSticker = await axios.put(`http://127.0.0.1:5000/stickers/${formData.stickerIdTraded}`,{user: userId})
+            const removeSticker = await axios.put(`https://panini-players-backend.onrender.com/stickers/${formData.stickerIdTraded}`,{user: userId})
             dispatch(getUserData(username))
             console.log(removeSticker.data);
             console.log(userCards);
             if (removeSticker.data !== userCards) {
-                const addSticker = await axios.post(`http://127.0.0.1:5000/stickers/${formData.stickerIdReceived}`, {user: userId})
+                const addSticker = await axios.post(`https://panini-players-backend.onrender.com/stickers/${formData.stickerIdReceived}`, {user: userId})
                 setAdded(true)
             }
         } catch (error) {

@@ -63,7 +63,7 @@ export default function Profile() {
 }
 
 const updateUserLocation = async (val, user) => {
-    await axios.post("http://127.0.0.1:5000/location", {location: val, id: user.userId})
+    await axios.post("https://panini-players-backend.onrender.com/location", {location: val, id: user.userId})
 }
 
 const totalFriends = (friends) => {
