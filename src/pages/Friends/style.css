@@ -1,0 +1,12 @@
+.trade {
+    background-color: var(--golden-colour);
+}  
+
+.friends {
+    display: flex;
+    flex-direction: column;
+}
+
+.friends > button {
+    margin: 15px;
+}

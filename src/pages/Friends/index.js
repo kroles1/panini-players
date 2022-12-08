@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { FriendItem } from '../../components'
 import { useDispatch, useSelector } from 'react-redux'
 import { getFriendsData } from '../../actions'
+import './style.css'
 
 export default function Friends() {
   const friendsData = useSelector(state => state.friends.friends)
@@ -104,9 +105,10 @@ export default function Friends() {
 
   return (
     <>
-    <button onClick={() => navigate("/dashboard/friends/add")}>+</button>
-    <h1>Friends List</h1>
-    {renderFriends()}
+    <div className='friends'>
+      <button onClick={() => navigate("/dashboard/friends/add")}>Add friend</button>
+      {renderFriends()}
+    </div>
     </>
   )
 }

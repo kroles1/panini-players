@@ -57,3 +57,44 @@ img {
    font-size: larger;
    color: white;
 }
+
+.albumTop {
+   margin-top: 75px;
+   height: 200px;
+   display: flex;
+   justify-content: space-around;
+}
+
+.albumTop > button {
+   height: 25%;
+   margin: 25px;
+   font-weight: bold;
+   font-size: larger;
+   background-color: #aa8531;
+   border: 2px solid#7b6710;
+
+}
+
+.albumTop > button:hover {
+   height: 25%;
+   margin: 25px;
+   font-weight: bold;
+   font-size: larger;
+   background-color: #aa8531;
+   border: 2px solid#aa8531;
+}
+
+.albumTop > select {
+   height: 25%;
+   margin: 25px;
+   font-weight: bold;
+   font-size: larger;
+   background-color: #aa8531;
+   border: 2px solid#7b6710;
+}
+
+/* .albumTop > img {
+   width: 100%;
+   height: 100%;
+   margin: 25px;
+} */

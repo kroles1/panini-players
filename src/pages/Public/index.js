@@ -7,7 +7,7 @@ import { Chat } from '../../components';
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
 import {PublicItem} from '../../components'
-let endPoint = "http://localhost:5000";
+let endPoint = "https://panini-players-backend.onrender.com";
 
 export default function Public() {
   const [socketInstance, setSocketInstance] = useState("");
