@@ -98,8 +98,6 @@ export default function Album() {
       <div className='stickers'>
         {renderStickers()}
       </div>
-      <button>Page Left</button>
-      <button>Page Right</button>
     </div>
   )
 }
