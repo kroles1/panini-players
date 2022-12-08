@@ -1,0 +1,28 @@
+.messeges {
+    list-style-type: none;
+    text-align: center;
+    color: white;
+    margin-right: 35px;
+}
+
+.globalChat {
+    color: white;
+}
+
+.chatBox {
+    margin-top: 10px;
+    border: solid 1px whitesmoke;
+    background-color: var(--minor-bg-color);
+    width: 300px;
+    border-radius: 5px;
+}
+
+.inputChat {
+    width: 260px;
+}
+
+.submitChat {
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+}
