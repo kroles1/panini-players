@@ -4,6 +4,47 @@ body {
     align-items: center;
 }
 
+#loginContainer {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+#flagsLeft,
+#flagsRight {
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    height: 50vh;
+    margin: 2.5px
+}
+
+.groupA,
+.groupB,
+.groupC,
+.groupD,
+.groupE,
+.groupF,
+.groupG,
+.groupH {
+    display: flex;
+    /* margin: 10px; */
+}
+
+.flag {
+    width: 75px;
+    border: 1px solid gold;
+    margin: 2.5px
+}
+
+#logo {
+    width: 300px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
 .loginpg {
     display: flex;
     flex-direction: column;
@@ -46,9 +87,10 @@ input {
 }
 
 a {
-    text-decoration: none;   
+    text-decoration: none;
 }
 
 a:active {
     color: black;
 }
+
