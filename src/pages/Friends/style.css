@@ -5,8 +5,32 @@
 .friends {
     display: flex;
     flex-direction: column;
+    height: 80vh;
+    align-items: center;
 }
 
 .friends > button {
     margin: 15px;
+    height: 50px;
+    width: 250px;
+    border-radius: 20px;
 }
+
+.renderFriends {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    overflow-x: scroll;
+}
+
+.notrade{
+    margin: 5px;
+    width: 25vw;
+ }
+
+ .friendHeader {
+    text-align: center;
+    color: white;
+ }
+
+
