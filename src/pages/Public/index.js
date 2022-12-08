@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import {PublicItem} from '../../components'
 let endPoint = "http://127.0.0.1:5000";
 
-
 export default function Public() {
   const [socketInstance, setSocketInstance] = useState("");
   const [loading, setLoading] = useState(true);

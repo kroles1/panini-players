@@ -26,7 +26,7 @@
 .active {
     color: #aa8531;
     /* border-bottom: var(--main-bg-color); */
-    border: #aa8531;
+    border-bottom: solid 2px #aa8531;
 }
 
 a {

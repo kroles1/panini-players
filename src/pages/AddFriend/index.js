@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
+import './style.css'
 
 export default function AddFriend() {
   const [formData, setFormData] = useState({})
@@ -23,11 +24,15 @@ export default function AddFriend() {
 
   return (
     <>
+    <h1 className='addFriendTitle'>Add friend</h1>
+    <div className='addFriendForm'>
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="User Id" name='friend' value={formData.friend} onChange={handleChange}></input>
-      <input type="submit" value="Add friend"></input>
+      <input type="text" placeholder="User Id" name='friend' value={formData.friend} onChange={handleChange} className="friendInput"></input>
+      <input type="submit" value="Add friend" className='friendSubmit'></input>
     </form>
-    {added && <p>Friend Added</p>}
+    {added && <p className='friendAdded'>Friend Added</p>}
+    </div>
     </>
+    
   )
 }
