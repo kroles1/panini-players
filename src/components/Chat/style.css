@@ -19,10 +19,23 @@
 
 .inputChat {
     width: 260px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
 }
 
 .submitChat {
     width: 100px;
     height: 40px;
-    border-radius: 20px;
+    font-weight: bold;
+    font-size: larger;
+    background-color: #aa8531;
+    border: 2px solid#7b6710;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.submitChat:hover {
+    background-color: #997b33;
 }

@@ -11,6 +11,12 @@
     background-color: #aa8531;
     border: 2px solid#7b6710;
     border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.friendSubmit:hover {
+    background-color: #997b33;
 }
 
 .addFriendForm > form {
@@ -33,6 +39,8 @@
 .friendAdded {
     text-align: center;
     color: white;
+    font-weight: bold;
+    font-size: larger;
 }
 
 .friendInput {
@@ -41,4 +49,6 @@
     margin: 10px;
     font-size: 15px;
     text-align: center;
+    border-radius: 10px;
+    border: none;
 }
