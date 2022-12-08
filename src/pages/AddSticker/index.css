@@ -1,0 +1,28 @@
+.add-sticker-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-sticker-btn {
+    height: 25%;
+    margin: 25px;
+    font-weight: bold;
+    font-size: larger;
+    background-color: #aa8531;
+    border: 2px solid#7b6710;
+}
+
+.add-sticker-img-unadded {
+    filter: grayscale(100%);
+    opacity: 0.2;
+}
+
+ .add-sticker-img-added {
+    opacity: 1;
+}
+
+.text-input {
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
